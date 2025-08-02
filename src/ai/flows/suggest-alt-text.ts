@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI flow for suggesting alt text for an image.
@@ -9,7 +10,7 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-export const SuggestAltTextInputSchema = z.object({
+const SuggestAltTextInputSchema = z.object({
   imageUrl: z
     .string()
     .describe(
