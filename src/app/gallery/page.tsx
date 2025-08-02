@@ -12,7 +12,7 @@ const galleryImages = [
   { src: 'https://placehold.co/800x600.png', alt: 'A chef preparing a gourmet dish', hint: 'gourmet food' },
   { src: 'https://placehold.co/600x800.png', alt: 'A child playing in a field', hint: 'child playing' },
   { src: 'https://placehold.co/800x600.png', alt: 'Abstract light trails in the dark', hint: 'light trails' },
-  { src:https://placehold.co/600x800.png', alt: 'A musician performing on stage', hint: 'musician performing' },
+  { src: 'https://placehold.co/600x800.png', alt: 'A musician performing on stage', hint: 'musician performing' },
   { src: 'https://placehold.co/800x600.png', alt: 'Wildlife in its natural habitat', hint: 'wildlife nature' },
 ];
 
@@ -22,7 +22,7 @@ export default function GalleryPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">Our Gallery</h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-          A collection of moments we&apos;ve captured. Explore our portfolio of portraits, landscapes, and events.
+          A collection of moments we've captured. Explore our portfolio of portraits, landscapes, and events.
         </p>
       </div>
 
