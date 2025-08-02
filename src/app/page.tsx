@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Camera } from 'lucide-react';
+import { ArrowRight, Camera, Check } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -25,38 +25,65 @@ const featuredWorks = [
   },
 ];
 
+const highlights = [
+    'High-Resolution Digital Images',
+    'Professional Editing & Retouching',
+    'Online Gallery for Sharing & Downloads',
+    'Fast Turnaround Time',
+];
+
 export default function Home() {
   return (
     <>
-      <section className="relative h-[80vh] min-h-[500px] w-full flex items-center justify-center text-center text-white">
-        <Image
-          src="https://placehold.co/1920x1080.png"
-          alt="Photographer holding a camera in a scenic location"
-          layout="fill"
-          objectFit="cover"
-          className="absolute inset-0 z-0 brightness-50"
-          data-ai-hint="photographer scenic"
-          priority
-        />
-        <div className="relative z-10 flex flex-col items-center p-4">
-          <div className="bg-black bg-opacity-30 p-8 rounded-lg backdrop-blur-sm">
-            <Camera className="h-16 w-16 mb-4 text-primary" />
-            <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight">
-              LensView Photography
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg md:text-xl text-primary-foreground/90">
-              Capturing life&apos;s moments, one frame at a time. Professional photography for every occasion.
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/gallery">
-                Explore Gallery <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+      <section className="w-full">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
+              <div className="max-w-xl">
+                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight text-foreground">
+                    Capturing Life, Perfectly
+                </h1>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  We specialize in creating timeless, high-quality photographs that you'll cherish for a lifetime. See the world through our lens.
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-center gap-3">
+                      <Check className="h-5 w-5 text-primary" />
+                      <span className="text-foreground/90">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 flex gap-4">
+                    <Button asChild size="lg">
+                        <Link href="/contact">
+                            Book a Session
+                        </Link>
+                    </Button>
+                    <Button asChild size="lg" variant="outline">
+                        <Link href="/gallery">
+                            View Gallery <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                    </Button>
+                </div>
+              </div>
+            </div>
+            <div className="relative min-h-[300px] md:min-h-0">
+               <Image
+                  src="https://placehold.co/800x1000.png"
+                  alt="A professional photographer in action"
+                  layout="fill"
+                  objectFit="cover"
+                  className="md:rounded-l-lg"
+                  data-ai-hint="photographer action"
+                  priority
+                />
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="featured-work" className="py-16 md:py-24 bg-background">
+      <section id="featured-work" className="py-16 md:py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">
             Featured Work
