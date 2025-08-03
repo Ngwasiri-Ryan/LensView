@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Clock, Calendar, Send, ArrowRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { ContactMap } from '@/components/contact-map';
+import ContactMap from '@/components/contact-map-wrapper';
 
 export default function ContactPage() {
   return (
