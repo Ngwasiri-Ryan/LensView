@@ -112,7 +112,7 @@ export default function Home() {
             <div className="relative min-h-[300px] md:min-h-0 hidden md:block">
               <ScrollAnimate speed={0.4}>
               <Image
-                src="https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1364&auto=format&fit=crop"
                 alt="A professional photographer in action"
                 fill
                 priority
