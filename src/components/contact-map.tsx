@@ -4,7 +4,6 @@
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
-import { cn } from "@/lib/utils"
 
 // Create a custom icon
 const customIcon = new Icon({
