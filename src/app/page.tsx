@@ -77,7 +77,7 @@ export default function Home() {
               We create timeless, emotion-filled photographs that you'll cherish for generations. Let's create something beautiful together.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="group">
+              <Button asChild size="lg" className="group btn-gradient">
                 <Link href="/contact" className="flex items-center">
                   Get Started Today
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -116,7 +116,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end p-6">
                       <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <h3 className="text-xl font-bold text-white">{work.title}</h3>
-                        <p className="text-primary">{work.category}</p>
+                        <p className="text-accent">{work.category}</p>
                       </div>
                     </div>
                     <Image
@@ -178,7 +178,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-primary/90 text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-accent text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline mb-6">
