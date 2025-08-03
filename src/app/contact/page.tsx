@@ -1,3 +1,6 @@
+
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -5,7 +8,12 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Clock, Calendar, Send, ArrowRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import ContactMap from '@/components/contact-map-wrapper';
+import dynamic from 'next/dynamic';
+
+const ContactMap = dynamic(() => import('@/components/contact-map'), { 
+  ssr: false,
+  loading: () => <div className="h-full w-full bg-muted animate-pulse rounded-lg" />
+});
 
 export default function ContactPage() {
   return (
