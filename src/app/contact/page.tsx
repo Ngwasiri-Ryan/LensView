@@ -1,18 +1,10 @@
-
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import dynamic from 'next/dynamic';
-
-const ContactMap = dynamic(() => import('@/components/contact-map'), {
-  ssr: false,
-  loading: () => <div className="h-full w-full bg-muted animate-pulse rounded-lg" />,
-});
+import DynamicContactMap from '@/components/dynamic-contact-map';
 
 
 export default function ContactPage() {
@@ -65,7 +57,7 @@ export default function ContactPage() {
           </div>
           <Separator />
           <div className="h-64 md:h-80 rounded-lg overflow-hidden">
-            <ContactMap />
+            <DynamicContactMap />
           </div>
         </div>
 
