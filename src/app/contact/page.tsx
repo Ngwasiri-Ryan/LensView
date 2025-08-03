@@ -1,26 +1,36 @@
+
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import dynamic from 'next/dynamic';
+
+const ContactMap = dynamic(() => import('@/components/contact-map'), {
+  ssr: false,
+  loading: () => <div className="h-full w-full bg-muted animate-pulse rounded-lg" />,
+});
+
 
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline">Get In Touch</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Get In Touch</h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
           Have a question or want to book a session? We&apos;d love to hear from you.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-5 gap-12">
-        <div className="md:col-span-2 space-y-8">
+      <div className="grid md:grid-cols-2 gap-12">
+        <div className="space-y-8">
           <h2 className="text-2xl font-bold font-headline">Contact Information</h2>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
+              <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-accent/10">
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <div>
@@ -31,7 +41,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
+              <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-accent/10">
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <div>
@@ -42,7 +52,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
+              <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-accent/10">
                 <MapPin className="h-6 w-6 text-primary" />
               </div>
               <div>
@@ -54,16 +64,13 @@ export default function ContactPage() {
             </div>
           </div>
           <Separator />
-          <div>
-            <h3 className="font-semibold mb-2">Business Hours</h3>
-            <p className="text-muted-foreground">Monday - Friday: 9am - 6pm</p>
-            <p className="text-muted-foreground">Saturday: 10am - 4pm (by appointment)</p>
-            <p className="text-muted-foreground">Sunday: Closed</p>
+          <div className="h-64 md:h-80 rounded-lg overflow-hidden">
+            <ContactMap />
           </div>
         </div>
 
-        <div className="md:col-span-3">
-          <Card>
+        <div>
+          <Card className="h-full">
             <CardHeader>
               <CardTitle className="font-headline">Send Us a Message</CardTitle>
               <CardDescription>Fill out the form below and we&apos;ll get back to you shortly.</CardDescription>
@@ -88,7 +95,7 @@ export default function ContactPage() {
                   <label htmlFor="message">Message</label>
                   <Textarea id="message" placeholder="Your message..." rows={6} />
                 </div>
-                <Button type="submit" className="w-full">Send Message</Button>
+                <Button type="submit" className="w-full btn-gradient">Send Message</Button>
               </form>
             </CardContent>
           </Card>
