@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { ArrowRight, Camera, Check, ChevronRight, Star, Heart, Instagram, Facebook } from 'lucide-react';
+import { ArrowRight, ChevronRight, Star, Heart, Instagram, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -32,13 +32,6 @@ const featuredWorks = [
   },
 ];
 
-const highlights = [
-  'High-Resolution Digital Images',
-  'Professional Editing & Retouching',
-  'Online Gallery for Sharing & Downloads',
-  'Fast Turnaround Time',
-];
-
 const testimonials = [
   {
     id: 1,
@@ -64,7 +57,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
+      <section className="relative h-screen w-full flex items-center justify-center text-center text-white -mt-20">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1364&auto=format&fit=crop"
@@ -76,17 +69,17 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
-        <div className="relative z-10 p-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight">
-              Capturing Life, Perfectly
+        <div className="relative z-10 p-4 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight text-shadow-lg">
+              Welcome to LensView
             </h1>
-            <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-white/90">
+            <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-white/90 text-shadow">
               We create timeless, emotion-filled photographs that you'll cherish for generations. Let's create something beautiful together.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="group">
                 <Link href="/contact" className="flex items-center">
-                  Book Your Session
+                  Get Started Today
                   <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>

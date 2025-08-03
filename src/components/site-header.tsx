@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Camera, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -21,10 +21,33 @@ const navLinks = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center">
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full transition-all duration-300 ease-in-out',
+        hasScrolled
+          ? 'border-b border-border/40 bg-background/80 backdrop-blur-lg'
+          : 'bg-transparent',
+        pathname !== '/' && 'bg-background/80 backdrop-blur-lg border-b'
+      )}
+    >
+      <div
+        className={cn(
+          'container flex items-center transition-all duration-300 ease-in-out max-w-screen-2xl',
+          hasScrolled ? 'h-16' : 'h-20'
+        )}
+      >
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Camera className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline">LensView</span>
