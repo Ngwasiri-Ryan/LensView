@@ -4,7 +4,6 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ArrowRight, Camera, Check, ChevronRight, Star, Heart, Instagram, Facebook } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ScrollAnimate } from '@/components/scroll-animate';
 
 const featuredWorks = [
   {
@@ -78,7 +77,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 p-4">
-          <ScrollAnimate>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight">
               Capturing Life, Perfectly
             </h1>
@@ -99,14 +97,12 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-          </ScrollAnimate>
         </div>
       </section>
 
       {/* Featured Work Section */}
       <section id="featured-work" className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4">
-        <ScrollAnimate>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary/10 text-primary mb-4">
               PORTFOLIO
@@ -118,12 +114,10 @@ export default function Home() {
               Explore a selection of our recent work across different photography styles and techniques.
             </p>
           </div>
-          </ScrollAnimate>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredWorks.map((work) => (
-              <ScrollAnimate key={work.id}>
-              <Card className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-none">
+              <Card key={work.id} className="overflow-hidden group hover:shadow-xl transition-all duration-300 border-none">
                 <Link href="/gallery">
                   <CardContent className="p-0 relative">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end p-6">
@@ -143,7 +137,6 @@ export default function Home() {
                   </CardContent>
                 </Link>
               </Card>
-              </ScrollAnimate>
             ))}
           </div>
           
@@ -161,7 +154,6 @@ export default function Home() {
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 bg-secondary/20">
         <div className="container mx-auto px-4">
-          <ScrollAnimate>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-primary/10 text-primary mb-4">
               TESTIMONIALS
@@ -170,12 +162,10 @@ export default function Home() {
               What Clients <span className="text-primary">Say</span>
             </h2>
           </div>
-          </ScrollAnimate>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
-              <ScrollAnimate key={testimonial.id}>
-              <Card className="p-6 hover:shadow-md transition-shadow duration-300">
+              <Card key={testimonial.id} className="p-6 hover:shadow-md transition-shadow duration-300">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star 
@@ -189,7 +179,6 @@ export default function Home() {
                 </blockquote>
                 <p className="font-medium text-foreground">— {testimonial.author}</p>
               </Card>
-              </ScrollAnimate>
             ))}
           </div>
         </div>
@@ -198,7 +187,6 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-primary/90 text-white">
         <div className="container mx-auto px-4">
-          <ScrollAnimate>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold font-headline mb-6">
               Ready to Create Something Beautiful?
@@ -221,7 +209,6 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          </ScrollAnimate>
         </div>
       </section>
 

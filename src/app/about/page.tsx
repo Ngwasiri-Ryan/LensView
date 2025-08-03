@@ -2,21 +2,17 @@
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { ScrollAnimate } from '@/components/scroll-animate';
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <ScrollAnimate>
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">About The Photographer</h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
           The eye behind the lens.
         </p>
       </div>
-      </ScrollAnimate>
 
-      <ScrollAnimate>
       <Card className="overflow-hidden">
         <CardContent className="p-0 md:p-8">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
@@ -57,7 +53,6 @@ export default function AboutPage() {
           </div>
         </CardContent>
       </Card>
-      </ScrollAnimate>
     </div>
   );
 }

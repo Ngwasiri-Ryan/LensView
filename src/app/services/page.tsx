@@ -3,7 +3,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Camera, Users, Building, PartyPopper, Briefcase, ArrowRight, Check, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ScrollAnimate } from '@/components/scroll-animate';
 
 const services = [
   {
@@ -90,7 +89,6 @@ export default function ServicesPage() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-16">
       {/* Hero Section */}
-      <ScrollAnimate>
       <div className="text-center mb-12 md:mb-16">
         <Badge variant="outline" className="mb-4 bg-primary/10 text-primary hover:bg-primary/20">
           Professional Photography Services
@@ -102,13 +100,12 @@ export default function ServicesPage() {
           We offer a comprehensive range of professional photography services tailored to your unique needs and creative vision.
         </p>
       </div>
-      </ScrollAnimate>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {services.map((service, index) => (
-          <ScrollAnimate key={index}>
           <Card 
+            key={index}
             className={`relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group h-full flex flex-col ${service.popular ? 'border-primary/30' : ''}`}
           >
             {service.popular && (
@@ -156,12 +153,10 @@ export default function ServicesPage() {
               </Button>
             </CardFooter>
           </Card>
-          </ScrollAnimate>
         ))}
       </div>
 
       {/* CTA Section */}
-      <ScrollAnimate>
       <div className="mt-16 md:mt-24 p-8 md:p-12 rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/10 text-center">
         <h2 className="text-2xl md:text-3xl font-bold font-headline mb-4">
           Not Sure What You Need?
@@ -179,7 +174,6 @@ export default function ServicesPage() {
           </Button>
         </div>
       </div>
-      </ScrollAnimate>
     </div>
   );
 }
