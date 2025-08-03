@@ -65,63 +65,41 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent z-10" />
-        <div className="container mx-auto relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[90vh]">
-            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
-              <ScrollAnimate>
-              <div className="max-w-xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <Camera className="h-6 w-6 text-primary" />
-                  <span className="text-sm font-medium text-primary">CAPTURING MOMENTS SINCE 2015</span>
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight text-foreground">
-                  Timeless <span className="text-primary">Photography</span> That Tells Your Story
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Specializing in creating authentic, emotion-filled photographs that you'll cherish for generations. Let's create something beautiful together.
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <div className="flex items-center justify-center p-1 rounded-full bg-primary/10">
-                        <Check className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-foreground/90">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Button asChild size="lg" className="group">
-                    <Link href="/contact" className="flex items-center">
-                      Book a Session
-                      <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline" className="group">
-                    <Link href="/gallery" className="flex items-center">
-                      View Gallery
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              </ScrollAnimate>
+      <section className="relative h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1364&auto=format&fit=crop"
+            alt="A professional photographer in action"
+            fill
+            priority
+            className="object-cover"
+            data-ai-hint="photographer action"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        <div className="relative z-10 p-4">
+          <ScrollAnimate>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tight">
+              Capturing Life, Perfectly
+            </h1>
+            <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-white/90">
+              We create timeless, emotion-filled photographs that you'll cherish for generations. Let's create something beautiful together.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="group">
+                <Link href="/contact" className="flex items-center">
+                  Book Your Session
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="group text-white border-white hover:bg-white hover:text-primary">
+                <Link href="/gallery" className="flex items-center">
+                  Explore Gallery
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
-            <div className="relative min-h-[300px] md:min-h-0 hidden md:block">
-              <ScrollAnimate speed={0.4}>
-              <Image
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1364&auto=format&fit=crop"
-                alt="A professional photographer in action"
-                fill
-                priority
-                className="object-cover md:rounded-l-3xl"
-                data-ai-hint="photographer action"
-              />
-              </ScrollAnimate>
-            </div>
-          </div>
+          </ScrollAnimate>
         </div>
       </section>
 
