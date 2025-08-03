@@ -1,30 +1,35 @@
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { ScrollAnimate } from '@/components/scroll-animate';
 
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-16">
+      <ScrollAnimate>
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">About The Photographer</h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
           The eye behind the lens.
         </p>
       </div>
+      </ScrollAnimate>
 
+      <ScrollAnimate>
       <Card className="overflow-hidden">
         <CardContent className="p-0 md:p-8">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
             <div className="md:col-span-1">
             <Image
-  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" // Use the direct image URL
-  alt="Portrait of Alex Doe, professional photographer"
-  width={600}
-  height={800}
-  className="w-full h-auto object-cover rounded-lg shadow-md"
-  priority
-  data-ai-hint="photographer portrait"
-/>
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" // Use the direct image URL
+              alt="Portrait of Alex Doe, professional photographer"
+              width={600}
+              height={800}
+              className="w-full h-auto object-cover rounded-lg shadow-md"
+              priority
+              data-ai-hint="photographer portrait"
+            />
             </div>
             <div className="md:col-span-2 p-6 md:p-0">
               <h2 className="text-3xl font-bold font-headline mb-4">Alex Doe</h2>
@@ -52,6 +57,7 @@ export default function AboutPage() {
           </div>
         </CardContent>
       </Card>
+      </ScrollAnimate>
     </div>
   );
 }
