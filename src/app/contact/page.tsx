@@ -4,16 +4,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import dynamic from 'next/dynamic';
-
-// Dynamic import with no SSR
-const MapComponent = dynamic(
-  () => import('@/components/contact-map'),
-  { 
-    ssr: false,
-    loading: () => <div className="h-full w-full bg-muted animate-pulse rounded-lg" />
-  }
-);
 
 export default function ContactPage() {
   return (
@@ -23,7 +13,7 @@ export default function ContactPage() {
           Get In Touch
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-          Have a question or want to book a session? We&apos;d love to hear from you.
+          Have a question or want to book a session? We'd love to hear from you.
         </p>
       </div>
 
@@ -67,11 +57,11 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-
-          <Separator />
           
-          <div className="h-64 md:h-80 rounded-lg overflow-hidden">
-            <MapComponent />
+          {/* Removed map section completely */}
+          <Separator />
+          <div className="h-64 md:h-80 rounded-lg bg-muted flex items-center justify-center">
+            <p className="text-muted-foreground">Location information available upon request</p>
           </div>
         </div>
 
@@ -80,7 +70,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="font-headline">Send Us a Message</CardTitle>
               <CardDescription>
-                Fill out the form below and we&apos;ll get back to you shortly.
+                Fill out the form below and we'll get back to you shortly.
               </CardDescription>
             </CardHeader>
             <CardContent>
