@@ -4,7 +4,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import ContactMap from '@/components/contact-map';
+import dynamic from 'next/dynamic';
+
+// Dynamic import with no SSR
+const MapComponent = dynamic(
+  () => import('@/components/contact-map'),
+  { 
+    ssr: false,
+    loading: () => <div className="h-full w-full bg-muted animate-pulse rounded-lg" />
+  }
+);
 
 export default function ContactPage() {
   return (
@@ -62,8 +71,7 @@ export default function ContactPage() {
           <Separator />
           
           <div className="h-64 md:h-80 rounded-lg overflow-hidden">
-            {/* Client Component with loading state built-in */}
-            <ContactMapWithLoading />
+            <MapComponent />
           </div>
         </div>
 
@@ -103,16 +111,6 @@ export default function ContactPage() {
           </Card>
         </div>
       </div>
-    </div>
-  );
-}
-
-// Client Component with loading state
-function ContactMapWithLoading() {
-  return (
-    <div className="h-full w-full bg-muted animate-pulse rounded-lg">
-      {/* The actual map component will replace this when loaded */}
-      <ContactMap />
     </div>
   );
 }
