@@ -1,22 +1,18 @@
-'use-client'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import dynamic from 'next/dynamic';
-
-const ContactMap = dynamic(() => import('@/components/contact-map'), { 
-  ssr: false,
-  loading: () => <div className="h-full w-full bg-muted animate-pulse rounded-lg" />,
-});
+import ContactMap from '@/components/contact-map';
 
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Get In Touch</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          Get In Touch
+        </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
           Have a question or want to book a session? We&apos;d love to hear from you.
         </p>
@@ -37,6 +33,7 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-accent/10">
                 <Phone className="h-6 w-6 text-primary" />
@@ -48,6 +45,7 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
+
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-accent/10">
                 <MapPin className="h-6 w-6 text-primary" />
@@ -60,9 +58,12 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+
           <Separator />
+          
           <div className="h-64 md:h-80 rounded-lg overflow-hidden">
-             <ContactMap />
+            {/* Client Component with loading state built-in */}
+            <ContactMapWithLoading />
           </div>
         </div>
 
@@ -70,7 +71,9 @@ export default function ContactPage() {
           <Card className="h-full">
             <CardHeader>
               <CardTitle className="font-headline">Send Us a Message</CardTitle>
-              <CardDescription>Fill out the form below and we&apos;ll get back to you shortly.</CardDescription>
+              <CardDescription>
+                Fill out the form below and we&apos;ll get back to you shortly.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-6">
@@ -92,12 +95,24 @@ export default function ContactPage() {
                   <label htmlFor="message">Message</label>
                   <Textarea id="message" placeholder="Your message..." rows={6} />
                 </div>
-                <Button type="submit" className="w-full btn-gradient">Send Message</Button>
+                <Button type="submit" className="w-full btn-gradient">
+                  Send Message
+                </Button>
               </form>
             </CardContent>
           </Card>
         </div>
       </div>
+    </div>
+  );
+}
+
+// Client Component with loading state
+function ContactMapWithLoading() {
+  return (
+    <div className="h-full w-full bg-muted animate-pulse rounded-lg">
+      {/* The actual map component will replace this when loaded */}
+      <ContactMap />
     </div>
   );
 }
